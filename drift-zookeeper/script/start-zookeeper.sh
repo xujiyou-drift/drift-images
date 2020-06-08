@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 # 节点配置
+echo "tickTime=2000" >> /opt/zookeeper/conf/zoo.cfg
+echo "initLimit=10" >> /opt/zookeeper/conf/zoo.cfg
+echo "syncLimit=5" >> /opt/zookeeper/conf/zoo.cfg
+echo "clientPort=2181" >> /opt/zookeeper/conf/zoo.cfg
 echo "dataDir=$DATA_DIR" >> /opt/zookeeper/conf/zoo.cfg
 
 # 集群配置
