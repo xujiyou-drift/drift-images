@@ -6,7 +6,7 @@ ARG SCALA_VERSION=2.12
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget netcat-openbsd \
-    && wget -q "https://mirror.bit.edu.cn/apache/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz" \
+    && wget -U mozilla "https://mirror.bit.edu.cn/apache/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz" \
     && tar -xzf "kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz" -C /opt \
     && rm -r "kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz" \
     && mv /opt/kafka_$SCALA_VERSION-$KAFKA_VERSION /opt/kafka
