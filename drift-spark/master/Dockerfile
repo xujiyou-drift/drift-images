@@ -16,6 +16,6 @@ RUN chmod +x /opt/script/start-spark-master.sh
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
-ENV PATH=${PATH}:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/opt/script
+ENV PATH=${PATH}:${JAVA_HOME}/bin:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:/opt/script
 
 ENTRYPOINT ["start-spark-master.sh"]
