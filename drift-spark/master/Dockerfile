@@ -5,10 +5,10 @@ ARG SPARK_VERSION=spark-2.4.6
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget netcat-openbsd \
-    && wget -U mozilla "https://mirrors.tuna.tsinghua.edu.cn/apache/spark/$SPARK_VERSION/$SPARK_VERSION-bin-without-hadoop.tgz" \
-    && tar -xzf "$SPARK_VERSION-bin-without-hadoop.tgz" -C /opt \
-    && rm -r "$SPARK_VERSION-bin-without-hadoop.tgz" \
-    && mv /opt/"$SPARK_VERSION"-bin-without-hadoop /opt/spark
+    && wget -U mozilla "https://mirrors.tuna.tsinghua.edu.cn/apache/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz" \
+    && tar -xzf "$SPARK_VERSION-bin-hadoop2.7.tgz" -C /opt \
+    && rm -r "$SPARK_VERSION-bin-hadoop2.7.tgz" \
+    && mv /opt/"$SPARK_VERSION"-bin-hadoop2.7 /opt/spark
 
 COPY script /opt/script
 
