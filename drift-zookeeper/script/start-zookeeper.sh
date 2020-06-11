@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# 外部需要配置环境变量 DATA_DIR、SERVER_NUMBER、STATEFUL_SET_NAME、SERVER_PORT、ELECTION_PORT
+
 # 节点配置
 echo "tickTime=2000" >> /opt/zookeeper/conf/zoo.cfg
 echo "initLimit=10" >> /opt/zookeeper/conf/zoo.cfg
