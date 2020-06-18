@@ -14,10 +14,10 @@ sed 's/zookeeper.connect=.*//' $CONFI_FILE.back > $CONFI_FILE
 ID=$(hostname | xargs echo |awk -F- '{print $NF}')
 echo "broker.id=$ID" >> $CONFI_FILE
 
-INSIDE_ADDRESS="$(hostname).$(hostname -d):9092"
+INSIDE_ADDRESS="$(hostname).$(hostname -d)"
 echo "listener.security.protocol.map=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT" >> $CONFI_FILE
-echo "listeners=INSIDE://$INSIDE_ADDRESS,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
-echo "advertised.listeners=INSIDE://$INSIDE_ADDRESS,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
+echo "listeners=INSIDE://$INSIDE_ADDRESS:9092,OUTSIDE://$INSIDE_ADDRESS:19090" >> $CONFI_FILE
+echo "advertised.listeners=INSIDE://$INSIDE_ADDRESS:9092,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
 echo "inter.broker.listener.name=INSIDE" >> $CONFI_FILE
 
 mkdir -p "$DATA_DIR"
