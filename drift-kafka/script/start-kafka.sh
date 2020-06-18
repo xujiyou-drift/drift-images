@@ -16,7 +16,7 @@ echo "broker.id=$ID" >> $CONFI_FILE
 
 INSIDE_ADDRESS="$(hostname).$(hostname -d):9092"
 echo "listener.security.protocol.map=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT" >> $CONFI_FILE
-echo "listeners=INSIDE://$INSIDE_ADDRESS,OUTSIDE://$INSIDE_ADDRESS" >> $CONFI_FILE
+echo "listeners=INSIDE://$INSIDE_ADDRESS" >> $CONFI_FILE
 echo "advertised.listeners=INSIDE://$INSIDE_ADDRESS,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
 echo "inter.broker.listener.name=INSIDE" >> $CONFI_FILE
 
