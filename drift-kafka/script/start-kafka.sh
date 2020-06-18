@@ -15,11 +15,10 @@ ID=$(hostname | xargs echo |awk -F- '{print $NF}')
 echo "broker.id=$ID" >> $CONFI_FILE
 
 INSIDE_ADDRESS="$(hostname).$(hostname -d)"
-#echo "listener.security.protocol.map=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT" >> $CONFI_FILE
-#echo "inter.broker.listener.name=INSIDE" >> $CONFI_FILE
-echo "listeners=PLAINTEXT://$INSIDE_ADDRESS:9092" >> $CONFI_FILE
-#echo "advertised.listeners=INSIDE://$INSIDE_ADDRESS:9092,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
-echo "advertised.listeners=PLAINTEXT://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
+echo "listener.security.protocol.map=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT" >> $CONFI_FILE
+echo "inter.broker.listener.name=INSIDE" >> $CONFI_FILE
+echo "listeners=INSIDE://$INSIDE_ADDRESS:9092,OUTSIDE://$INSIDE_ADDRESS:9094" >> $CONFI_FILE
+echo "advertised.listeners=INSIDE://$INSIDE_ADDRESS:9092,OUTSIDE://$EXTERNAL_ADDRESS:3109$ID" >> $CONFI_FILE
 
 mkdir -p "$DATA_DIR"
 echo "log.dirs=$DATA_DIR" >> $CONFI_FILE
